@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Joshua Frank — Cybersecurity / IT Support</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0d0c; --bg2:#0f1412; --panel:#121815; --line:#1f2a25;
+  --fg:#dce6e0; --fg-dim:#7c8f86; --accent:#43e97b; --accent2:#3fb6e8;
+  --warn:#e8b93f;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){ --bg:#0a0d0c; --bg2:#0f1412; --panel:#121815; --line:#1f2a25; --fg:#dce6e0; --fg-dim:#7c8f86; }
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px); scroll-behavior:smooth;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Inter',sans-serif;line-height:1.6;}
+.mono{font-family:'JetBrains Mono',monospace;}
+a{color:var(--accent2);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+
+header.top{position:sticky;top:0;top:env(safe-area-inset-top,0px);background:rgba(10,13,12,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:10;}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;}
+header.top .prompt{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--accent);}
+header.top nav{display:flex;gap:18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--fg-dim);}
+header.top nav a{color:var(--fg-dim);}
+header.top nav a:hover{color:var(--accent);text-decoration:none;}
+
+section{padding:56px 0;border-bottom:1px solid var(--line);}
+section:last-of-type{border-bottom:none;}
+
+.hero{padding-top:64px;}
+.hero .tag{font-family:'JetBrains Mono',monospace;color:var(--accent2);font-size:13px;margin-bottom:14px;}
+.hero h1{font-size:2.6rem;margin:0 0 10px;font-weight:800;letter-spacing:-.01em;}
+.hero h1 span{color:var(--accent);}
+.hero p.lede{color:var(--fg-dim);max-width:60ch;font-size:1.05rem;}
+.hero .cta{margin-top:22px;display:flex;gap:14px;flex-wrap:wrap;}
+.btn{font-family:'JetBrains Mono',monospace;font-size:13px;padding:10px 16px;border:1px solid var(--accent);color:var(--accent);border-radius:3px;}
+.btn:hover{background:var(--accent);color:#06110c;text-decoration:none;}
+.btn.ghost{border-color:var(--line);color:var(--fg-dim);}
+.btn.ghost:hover{border-color:var(--fg-dim);color:var(--fg);background:transparent;}
+
+.achieve{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:4px;padding:16px 18px;margin-top:26px;}
+.achieve .k{font-family:'JetBrains Mono',monospace;color:var(--warn);font-size:12px;letter-spacing:.03em;}
+.achieve p{margin:6px 0 0;color:var(--fg);}
+.achieve .score{color:var(--fg-dim);font-size:13px;margin-top:4px;}
+
+h2.sec-title{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--fg-dim);margin:0 0 26px;}
+h2.sec-title::before{content:"$ ";color:var(--accent);}
+
+.about p{color:var(--fg-dim);max-width:66ch;}
+.meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 28px;margin-top:24px;}
+.meta-grid div span{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent2);margin-bottom:3px;}
+
+.skill-groups{display:grid;grid-template-columns:1fr 1fr;gap:22px 32px;}
+.skill-groups h3{font-size:13px;font-family:'JetBrains Mono',monospace;color:var(--accent2);margin:0 0 8px;font-weight:500;}
+.skill-groups p{margin:0;color:var(--fg-dim);font-size:.95rem;}
+
+.project{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:20px 22px;margin-bottom:16px;}
+.project h3{margin:0 0 4px;font-size:1.05rem;}
+.project .stack{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent2);margin-bottom:10px;}
+.project ul{margin:0;padding-left:18px;color:var(--fg-dim);font-size:.95rem;}
+.project li{margin-bottom:5px;}
+
+.cert-list, .work-list{list-style:none;margin:0;padding:0;}
+.cert-list li, .work-list li{padding:12px 0;border-bottom:1px solid var(--line);}
+.cert-list li:last-child, .work-list li:last-child{border-bottom:none;}
+.cert-list .name, .work-list .name{font-weight:600;}
+.cert-list .when, .work-list .when{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent2);}
+.work-list p{margin:4px 0 0;color:var(--fg-dim);font-size:.92rem;}
+
+footer{padding:40px 0 60px;text-align:center;}
+footer .wrap{display:flex;flex-direction:column;align-items:center;gap:10px;}
+footer .links{display:flex;gap:18px;font-family:'JetBrains Mono',monospace;font-size:13px;}
+footer .fine{color:var(--fg-dim);font-size:12px;margin-top:18px;}
+
+@media(max-width:600px){
+  .hero h1{font-size:2rem;}
+  .meta-grid, .skill-groups{grid-template-columns:1fr;}
+  header.top nav{display:none;}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="prompt">joshua@frank:~$</div>
+    <nav>
+      <a href="#about">about</a><a href="#skills">skills</a><a href="#projects">projects</a><a href="#achievements">achievements</a><a href="#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="tag mono">Cybersecurity &amp; IT Support Specialist — aspiring</div>
+    <h1>Joshua <span>Frank</span></h1>
+    <p class="lede">Final-year BCA undergraduate in Bangalore, building a security-conscious, troubleshooting-first foundation through Python, web development, and IoT projects — backed by IBM SkillsBuild certifications in Cybersecurity and AI.</p>
+    <div class="cta">
+      <a class="btn" href="mailto:joshua7sfrank@gmail.com">Email me</a>
+      <a class="btn ghost" href="tel:+919487966471">+91 94879 66471</a>
+    </div>
+
+    <div class="achieve">
+      <div class="k">RECENT ACHIEVEMENT</div>
+      <p>Ranked <strong>#12 of 15 finalists</strong> in CodeMyFYP's National Virtual Hackathon — Build Beyond Limits 2026, Developer Productivity track, with team ApexByte (project: CodeGuard AI).</p>
+      <div class="score">Score: 75/100 · Representing AMC Engineering College · Certificate CMFYP-H26-00215</div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <h2 class="sec-title">cat about.md</h2>
+    <p>I'm a BCA student at AMC Engineering College with hands-on experience across Python, web applications, databases, and IoT hardware-software integration. I like debugging things end-to-end — from fixing camera-resolution crashes in a face-recognition system to hardening cross-platform dependencies — and I'm moving that troubleshooting instinct toward cybersecurity and IT support.</p>
+    <div class="meta-grid">
+      <div><span>LOCATION</span>Bangalore, India</div>
+      <div><span>EDUCATION</span>BCA, AMC Engineering College · Exp. 2027 · CGPA 7.23</div>
+      <div><span>FOCUS</span>Cybersecurity · IT Support · Troubleshooting</div>
+      <div><span>STATUS</span>Open to entry-level roles</div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2 class="sec-title">ls skills/</h2>
+    <div class="skill-groups">
+      <div><h3>Languages</h3><p>Python, C++, JavaScript, HTML/CSS, SQL</p></div>
+      <div><h3>Web &amp; Database</h3><p>Web application development, MySQL, DBMS design</p></div>
+      <div><h3>Tools &amp; Platforms</h3><p>OpenCV, Streamlit, Git/GitHub, IoT hardware-software integration</p></div>
+      <div><h3>Concepts</h3><p>OOP, Data Structures &amp; Algorithms, Computer Networks, Cybersecurity Fundamentals</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2 class="sec-title">./run projects --all</h2>
+
+    <div class="project">
+      <h3>Face Recognition Attendance System</h3>
+      <div class="stack mono">Python · OpenCV · Streamlit</div>
+      <ul>
+        <li>Built a webcam-based attendance system that registers each person's face (100 samples) and recognizes them live, logging attendance to daily CSV files.</li>
+        <li>Built a Streamlit dashboard for live attendance records, auto-refreshing every 2 seconds.</li>
+        <li>Resolved data-file mismatches between modules, replaced a Windows-only speech dependency with a cross-platform fallback, and fixed crashes from camera resolution mismatches and undetected faces.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h3>Full-Stack Task Management System</h3>
+      <div class="stack mono">Java Spring Boot · React · MS SQL Server</div>
+      <ul>
+        <li>Built a multi-user task management web app with role-based access control.</li>
+        <li>Integrated RESTful APIs between frontend and backend for task creation, assignment, and tracking.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h3>Library Database Management System</h3>
+      <div class="stack mono">Web Application · MySQL</div>
+      <ul>
+        <li>Built a system to add books with publisher details and manage real-time availability.</li>
+        <li>Implemented issue/return functionality with automatic availability updates, plus an admin login for catalog management.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h3>IoT-Based Interactive Chatbot System</h3>
+      <div class="stack mono">C++ · IoT / Embedded</div>
+      <ul>
+        <li>Built an interactive hardware-software chatbot, writing C++ logic to process user and sensor inputs and integrating the supporting electronics.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h3>Train Booking Management System</h3>
+      <div class="stack mono">Web Application</div>
+      <ul>
+        <li>Built a train search and booking web app with phone-number login.</li>
+        <li>Generates a unique 6-character alphanumeric booking reference with confirmation on successful booking.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="wrap">
+    <h2 class="sec-title">cat achievements.log</h2>
+    <div class="project">
+      <h3>CodeMyFYP National Virtual Hackathon — Build Beyond Limits 2026</h3>
+      <div class="stack mono">Developer Productivity track · Team ApexByte</div>
+      <ul>
+        <li>Finished <strong>rank #12 of 15 finalists</strong> with a score of 75/100 for CodeGuard AI, an AI-assisted code review and testing tool, built with teammate Praveena Pwar.</li>
+        <li>Received Certificate of Participation (No. CMFYP-H26-00215), recognized for creativity, responsible AI use, and production-quality execution, representing AMC College.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sec-title">cat certifications.log</h2>
+    <ul class="cert-list">
+      <li><span class="name">IBM SkillsBuild — Getting Started with Cybersecurity</span><br><span class="when">Jul 2026</span></li>
+      <li><span class="name">IBM SkillsBuild — AI Fundamentals: Foundations for Understanding AI</span><br><span class="when">Jul 2026</span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sec-title">history | tail -n 1</h2>
+    <ul class="work-list">
+      <li>
+        <span class="name">Freelance Developer</span> <span class="when">— ongoing</span>
+        <p>Designed and delivered multiple client web pages. Built WhatsApp and Email automation systems for client workflows.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2 class="sec-title">./contact --me</h2>
+    <div class="links">
+      <a href="mailto:joshua7sfrank@gmail.com">joshua7sfrank@gmail.com</a>
+      <a href="tel:+919487966471">+91 94879 66471</a>
+    </div>
+    <div class="fine">Bangalore, India · built in a terminal, rendered for the web</div>
+  </div>
+</footer>
+
+</body>
+</html>
